@@ -7,11 +7,14 @@ import java.util.Set;
 
 @Entity
 public class Author {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String firstName;
     private String lastName;
+
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books = new HashSet<>();
 
@@ -26,7 +29,6 @@ public class Author {
     public Long getId() {
         return id;
     }
-
 
     public void setId(Long id) {
         this.id = id;
