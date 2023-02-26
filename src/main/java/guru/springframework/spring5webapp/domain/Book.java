@@ -7,6 +7,7 @@ import java.util.Set;
 
 @Entity
 public class Book {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -16,6 +17,7 @@ public class Book {
 
     @ManyToOne
     private Publisher publisher;
+
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id"))
@@ -44,7 +46,6 @@ public class Book {
     public void setId(Long id) {
         this.id = id;
     }
-
 
     public String getTitle() {
         return title;
